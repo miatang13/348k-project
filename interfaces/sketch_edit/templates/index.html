@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        margin: 0px;
+        padding: 6px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        height: 100vh;
+        text-align: center;
+        margin: 0; /* Remove default margin */
+      }
+    </style>
+  </head>
+  <body class="px-4">
+    <h1 class="text-2xl text-violet-800 font-bold mb-2 mt-8"> Sketch Editing Demo</h1>
+    <div id="demoWrapper" class="mb-2">
+      <div id="buttonContainer" class="grid grid-cols-8 gap-4"></div>
+    </div>
+    <div id="workspaceWrapper" class="grid place-content-center grid-cols-4 gap-2">
+      <div id="strokeLayersWrapper"> 
+        <h3 class="text-violet-800 font-bold mb-1">Sketch Layers</h3>
+        <div class="grid grid-cols-2 border-4 border-violet-200 bg-violet-50 rounded-sm" id="strokeLayersDisplayContainer"></div>
+        <div id="inpaintMaskContainer"></div>
+      </div>
+      
+      <div id="canvasWrapper" class="col-span-2 grid place-content-center">
+        <h3 class="text-violet-800 font-bold mb-1"> Canvas</h3>
+        <canvas id="myCanvas" class="border-4 rounded-sm" width="512" height="512"></canvas>
+      </div>
+
+      <div id="inpaintLayersWrapper">
+        <h3 class="text-violet-800 font-bold mb-1">Sketch Operations</h3>
+        <div class="grid grid-cols-2 gap-2 bg-violet-50 p-4 rounded">
+          <div class="col-span-2 grid grid-cols-2 mb-2">
+            <h3> Upload Sketch</h3>
+            <input type="file" id="imageLoader" name="imageLoader"/>
+          </div>
+          <button id="segmentButton" class="col-span-2 text-violet-800 bg-violet-200 hover:bg-violet-500 hover:text-white p-2 rounded">Segment Sketch</button>
+          <button id="inpaintButton" class="col-span-2 text-violet-800 bg-violet-200 hover:bg-violet-500 hover:text-white p-2 rounded">Inpaint Sketch</button>
+          <button id="deleteLayerButton" class="bg-violet-200 text-violet-800 hover:bg-violet-700 hover:text-white p-2 rounded">Delete Layer</button>
+          <button id="copyLayerButton" class="bg-violet-200 text-violet-800 hover:bg-violet-700 hover:text-white p-2 rounded">Copy Layer</button>
+        </div>
+        
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"> </script>
+  </body>
+</html>      

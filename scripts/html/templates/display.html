@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Images</title>
+    <style>
+        body {
+          font-family: monospace;
+        }
+        figure { 
+          border: 1px solid #ccc;
+          padding: 1rem;
+        }
+        
+      </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6">
+  <div class="flex grid grid-cols-2">
+    {% for large_image in large_images %}
+    <figure>
+      <img src="{{ large_image }}" alt="Image" style="width:600px">
+    </figure>
+    {% endfor %}
+  </div>
+    <div class="grid grid-cols-4 gap-4">
+        {% for image_path, caption in images_with_captions %}
+        <div class="border">
+            <img src="{{ image_path }}" alt="Image" style="width:200px">
+            <p>{{ caption }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
